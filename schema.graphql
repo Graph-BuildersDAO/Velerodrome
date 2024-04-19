@@ -1,0 +1,111 @@
+type Protocol @entity {
+  id: Bytes!
+}
+
+type Bundle @entity {
+  id: ID!
+}
+
+type Token @entity {
+  id: Bytes!
+}
+
+type Pool @entity {
+  id: Bytes!
+}
+
+type Account @entity {
+  id: Bytes!
+}
+
+#############################
+######## Pool Events ########
+#############################
+
+interface Event {
+  id: ID!
+
+  " Transaction hash of the transaction that emitted this event "
+  hash: String!
+
+  " Event log index. "
+  logIndex: Int!
+
+  " Block number of this event "
+  blockNumber: BigInt!
+
+  " Timestamp of this event "
+  timestamp: BigInt!
+
+  " Wallet that event is for "
+  account: Account!
+
+  " Pool that the account interfaced with "
+  pool: Pool!
+}
+
+type Swap implements Event @entity {
+  id: ID!
+
+  " Transaction hash of the transaction that emitted this event "
+  hash: String!
+
+  " Event log index. "
+  logIndex: Int!
+
+  " Block number of this event "
+  blockNumber: BigInt!
+
+  " Timestamp of this event "
+  timestamp: BigInt!
+
+  " Wallet that event is for "
+  account: Account!
+
+  " Pool that the account interfaced with "
+  pool: Pool!
+}
+
+type Mint implements Event @entity {
+  id: ID!
+
+  " Transaction hash of the transaction that emitted this event "
+  hash: String!
+
+  " Event log index. "
+  logIndex: Int!
+
+  " Block number of this event "
+  blockNumber: BigInt!
+
+  " Timestamp of this event "
+  timestamp: BigInt!
+
+  " Wallet that event is for "
+  account: Account!
+
+  " Pool that the account interfaced with "
+  pool: Pool!
+}
+
+type Burn implements Event @entity {
+  id: ID!
+
+  " Transaction hash of the transaction that emitted this event "
+  hash: String!
+
+  " Event log index. "
+  logIndex: Int!
+
+  " Block number of this event "
+  blockNumber: BigInt!
+
+  " Timestamp of this event "
+  timestamp: BigInt!
+
+  " Wallet that event is for "
+  account: Account!
+
+  " Pool that the account interfaced with "
+  pool: Pool!
+}

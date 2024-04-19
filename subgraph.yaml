@@ -34,8 +34,4 @@ dataSources:
           handler: handleSetFeeManager
         - event: SetPauseState(bool)
           handler: handleSetPauseState
-        - event: SetPauser(address)
-          handler: handleSetPauser
-        - event: SetVoter(address)
-          handler: handleSetVoter
       file: ./src/pool-factory.ts
